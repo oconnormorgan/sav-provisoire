@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\ClientsModel;
+use App\Http\Resources\ClientsResource;
 use Illuminate\Http\Request;
 
 class AccueilController extends Controller
@@ -43,9 +45,10 @@ class AccueilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $clients = ClientsModel::all();
+        return ClientsResource::collection($clients);
     }
 
     /**

@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'AccueilController@index');
+
+Route::get('/show', 'AccueilController@show');
