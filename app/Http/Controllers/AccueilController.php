@@ -48,7 +48,7 @@ class AccueilController extends Controller
      */
     public function show()
     {
-        $clients = ClientsModel::all(); //prepare la connections
+        $clients = ClientsModel::orderBy('nom', 'asc')->get(); //prepare la connections
         $clientsCollection = new ResourceCollection($clients); //formate les données
         return view('clients.accueil', ['clients'=>$clientsCollection]); //renvoie les données
 

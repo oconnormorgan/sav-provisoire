@@ -1,0 +1,1 @@
+<footer class="d-flex p-2 justify-content-center bg-secondary text-white">@morgan  o'connor</footer><?php /**PATH /media/cyberun-8/STOCKAGE/projet/SAV/resources/views/partials/footer.blade.php ENDPATH**/ ?>
