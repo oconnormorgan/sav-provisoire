@@ -9,7 +9,7 @@ $factory->define(ClientsModel::class, function (Faker $faker) {
     return [
         'nom' => $faker->firstName(),
         'prenom' => $faker->lastname,
-        'telephone' => $faker->phoneNumber,
+        'telephone' => $faker->e164PhoneNumber,
         'mail' => $faker->unique()->safeEmail,
     ];
 });

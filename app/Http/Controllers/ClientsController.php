@@ -7,7 +7,7 @@ use App\Http\Resources\ClientsResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class AccueilController extends Controller
+class ClientsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class AccueilController extends Controller
      */
     public function index()
     {
-        return view('clients.accueil');
+        //
     }
 
     /**
@@ -46,12 +46,10 @@ class AccueilController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-        $clients = ClientsModel::all(); //prepare la connections
-        $clientsCollection = new ResourceCollection($clients); //formate les données
-        return view('clients.accueil', ['clients'=>$clientsCollection]); //renvoie les données
-
+        $client = ClientsModel::find($id); //prepare la connections
+        return view('clients.client', ['client'=>$client]); //renvoie les données
     }
 
     /**

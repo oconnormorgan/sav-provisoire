@@ -12,5 +12,6 @@
 */
 
 Route::get('/', 'AccueilController@index');
+Route::get('/', 'AccueilController@show');
 
-Route::get('/show', 'AccueilController@show');
+Route::get('/{id}', 'ClientsController@show')->where('id', "[0-9]+");
