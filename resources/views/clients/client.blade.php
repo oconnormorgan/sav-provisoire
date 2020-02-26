@@ -12,6 +12,17 @@
             <p class="card-text">E-mail : {{$client->mail}}</p>
         </div>
     </div>
+    @foreach($exchanges as $exchange)
+    <div class="m-2 p-2 w-100 card text-black bg-light mb-3" style="max-width: 18rem;">
+
+        <div class="card-body d-flex flex-column">
+            <p class="card-text">{{$exchange->date}}</p>
+            <p class="card-text">{{$exchange->commentaire}}</p>
+            <p class="card-text">{{$exchange->id_type_exchange}}</p>
+            <p class="card-text">{{$exchange->id_user}}</p>
+        </div>
+    </div>
+    @endforeach
 </section>
 
 </html>

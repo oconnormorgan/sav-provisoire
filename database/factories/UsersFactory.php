@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(UsersModel::class, function (Faker $faker) {
     return [
-        'nom' => $faker->lastname,
+        'nom' => $faker->firstNameFemale,
     ];
 });

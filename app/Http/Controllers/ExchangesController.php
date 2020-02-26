@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\ClientsModel;
 use App\ExchangesModel;
-use App\Http\Resources\ClientsResource;
 use App\Http\Resources\ExchangesResource;
 use Illuminate\Http\Request;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Support\Facades\Validator;
 
-class ClientsController extends Controller
+class ExchangesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -40,7 +38,26 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $dataExchanges = Validator::make(
+            $request->input(),
+            [
+                'date' => 'required',
+                'commentaire' => 'required',
+                'id_type_exchange' => 'required',
+                'id_client' => 'required',
+                'id_user' => 'required',
+
+            ],
+            [
+                'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
+            ]
+        )->validate();
+
+        //Ajout en bdd des données validées par le validator
+        $exchanges = ExchangesModel::create($dataExchanges);
+
+        //Retourne le circuit formaté grace à la ressource
+        return new ExchangesResource($exchanges);
     }
 
     /**
@@ -52,7 +69,9 @@ class ClientsController extends Controller
     public function show($id)
     {
         $client = ClientsModel::find($id); //prepare la connections
-        return view('clients.client', ['client'=>$client]); //renvoie les données
+        $exchanges = ExchangesModel::where('id_client', '=', $id)->get(); //prepare la connections
+        // return view('clients.client', ['client'=>$client], ['exchanges'=>$exchanges]); //renvoie les données
+        return($exchanges);
     }
 
     /**

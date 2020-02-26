@@ -15,7 +15,7 @@ class ModifyForeign extends Migration
     {
         Schema::table('exchanges_table', function(Blueprint $table) {
             $table->unsignedBigInteger('id_type_exchange');
-            $table->foreign('id_type_exchange')->references('id')->on('type_exchanges_table');
+            $table->foreign('id_type_exchange')->references('id')->on('type_exchange_table');
             $table->unsignedBigInteger('id_client');
             $table->foreign('id_client')->references('id')->on('clients_table');
             $table->unsignedBigInteger('id_user');

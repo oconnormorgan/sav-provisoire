@@ -13,7 +13,7 @@ class TypeExchangeTable extends Migration
      */
     public function up()
     {
-        Schema::create('type_exchanges_table', function (Blueprint $table) {
+        Schema::create('type_exchange_table', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->longText('type');
         });
@@ -26,6 +26,6 @@ class TypeExchangeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('type_exchanges_table');
+        Schema::dropIfExists('type_exchange_table');
     }
 }
