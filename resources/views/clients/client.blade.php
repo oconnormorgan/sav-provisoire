@@ -18,8 +18,8 @@
         <div class="card-body d-flex flex-column">
             <p class="card-text">{{$exchange->date}}</p>
             <p class="card-text">{{$exchange->commentaire}}</p>
-            <p class="card-text">{{$exchange->id_type_exchange}}</p>
-            <p class="card-text">{{$exchange->id_user}}</p>
+            <p class="card-text">Type d'échange : {{$exchange->typeExchange->type}}</p>
+            <p class="card-text">Opératrice : {{$exchange->user->nom}}</p>
         </div>
     </div>
     @endforeach

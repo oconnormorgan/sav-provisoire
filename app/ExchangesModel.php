@@ -10,13 +10,13 @@ class ExchangesModel extends Model
     protected $fillable = ['date', 'commentaire', 'id_type_exchange', 'id_client', 'id_user'];
     public $timestamps = false;
 
-    public function type_exchange(){
+    public function typeExchange(){
         return $this->belongsTo(TypeExchangesModel::class, 'id_type_exchange');
     }
     public function client(){
         return $this->belongsTo(ClientsModel::class, 'id_client');
     }
-    public function Users(){
+    public function user(){
         return $this->belongsTo(UsersModel::class, 'id_user');
     }
 }

@@ -14,13 +14,18 @@ class ExchangesResource extends JsonResource
      */
     public function toArray($request)
     {
+
+        $typeExchange =  new TypeExchangesResource($this->typeExchange);
+        $client =  new ClientsResource($this->client);
+        $user =  new UsersResource($this->user);
+
         return [
             'id'=>$this->id,
             'date'=>$this->date,
             'commentaire'=>$this->commentaire,
-            'id_type_exchange'=>$this->id_type_exchange,
-            'id_client'=>$this->id_client,
-            'id_user'=>$this->id_user,
+            'id_type_exchange'=>$typeExchange,
+            'id_client'=>$client,
+            'id_user'=>$user,
         ];
     }
 }

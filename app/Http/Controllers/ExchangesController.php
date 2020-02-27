@@ -6,6 +6,7 @@ use App\ClientsModel;
 use App\ExchangesModel;
 use App\Http\Resources\ExchangesResource;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Support\Facades\Validator;
 
 class ExchangesController extends Controller
@@ -68,10 +69,12 @@ class ExchangesController extends Controller
      */
     public function show($id)
     {
-        $client = ClientsModel::find($id); //prepare la connections
+        $client = ClientsModel::find($id);
         $exchanges = ExchangesModel::where('id_client', '=', $id)->get(); //prepare la connections
-        // return view('clients.client', ['client'=>$client], ['exchanges'=>$exchanges]); //renvoie les données
-        return($exchanges);
+        $exchangeData = ExchangesResource::collection($exchanges);
+
+        return view('clients.client', ['client'=>$client], ['exchanges'=>$exchangeData]); //renvoie les données
+        // return $exchangeData;
     }
 
     /**
