@@ -8,13 +8,13 @@
     <title>SAV - <?php echo $__env->yieldContent('title'); ?></title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/3227ebb15b.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <?php echo $__env->make('partials.navbar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <main>
-    <?php echo e(csrf_token()); ?>
-
+    <!-- <?php echo e(csrf_token()); ?> -->
         <?php echo $__env->yieldContent('content'); ?>
     </main>
     <?php echo $__env->make('partials.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

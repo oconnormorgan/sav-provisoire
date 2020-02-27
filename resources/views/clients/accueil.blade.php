@@ -7,12 +7,10 @@
     <h2>Liste des clients : </h2>
     <div class="d-flex flex-row justify-content-center flex-wrap">
         @foreach($clients as $client)
-        <div class="m-2 p-2 w-100 card text-black bg-light mb-3" style="max-width: 18rem;">
-
-            <div class="card-body d-flex flex-column">
-                <p class="card-text">{{$client->nom}}</p>
-                <p class="card-text">{{$client->prenom}}</p>
-                <p class="card-text d-flex justify-content-end"><a href="{{$client->id}}" class="text-black">Détails</a></p>
+        <div class="m-2 w-100 card text-black bg-light mb-3" style="max-width: 18rem;">
+            <div class="card-header d-flex justify-content-start align-items-center">
+                <div class="flex-grow-1">{{$client->nom}} {{$client->prenom}}</div>
+                <a href="{{$client->id}}" class="rounded-circle text-secondary"><i class="fas fa-info-circle fa-2x"></i></a>
             </div>
         </div>
         @endforeach

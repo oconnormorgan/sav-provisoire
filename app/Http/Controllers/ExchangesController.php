@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\ClientsModel;
 use App\ExchangesModel;
 use App\Http\Resources\ExchangesResource;
+use App\TypeExchangesModel;
+use App\UsersModel;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Support\Facades\Validator;
@@ -70,10 +72,12 @@ class ExchangesController extends Controller
     public function show($id)
     {
         $client = ClientsModel::find($id);
-        $exchanges = ExchangesModel::where('id_client', '=', $id)->get(); //prepare la connections
+        $users = UsersModel::get();
+        $typeExchanges = TypeExchangesModel::get();
+        $exchanges = ExchangesModel::where('id_client', '=', $id)->orderBy('date', 'DESC')->get(); //prepare la connections
         $exchangeData = ExchangesResource::collection($exchanges);
 
-        return view('clients.client', ['client'=>$client], ['exchanges'=>$exchangeData]); //renvoie les données
+        return view('clients.client', ['client'=>$client, 'exchanges'=>$exchangeData,'users'=>$users, 'typeExchanges'=>$typeExchanges]); //renvoie les données
         // return $exchangeData;
     }
 

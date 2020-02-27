@@ -21,8 +21,8 @@ $factory->define(ExchangesModel::class, function (Faker $faker) {
     $user_id = $faker->randomElement($user_ids)->id;
 
     return [
-        'date' => $faker->dateTime($max = 'now', $timezone = null),
-        'commentaire' => $faker->text($maxNbChars = 300),
+        'date' => $faker->dateTimeBetween($startDate = '-10 years', $endDate = 'now', $timezone = null),
+        'commentaire' => $faker->paragraph($nbSentences = 5, $variableNbSentences = true),
         'id_type_exchange' => $type_exchange_id,
         'id_client' => $client_id,
         'id_user' => $user_id,

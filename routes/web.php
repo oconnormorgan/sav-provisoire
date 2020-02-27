@@ -17,4 +17,4 @@ Route::get('/', 'AccueilController@show');
 Route::get('/{id}', 'ClientsController@show')->where('id', "[0-9]+");
 
 Route::get('/{id}', 'ExchangesController@show')->where('id', "[0-9]+");
-Route::post('{id}/exchanges', 'ExchangesController@store')->where('id', "[0-9]+");
+Route::post('/{id}', 'ExchangesController@store')->where('id', "[0-9]+");
