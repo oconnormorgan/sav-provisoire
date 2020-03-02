@@ -14,7 +14,7 @@
 <body>
     @include('partials.navbar')
     <main>
-    <!-- {{csrf_token()}} -->
+    {{csrf_token()}}
         @yield('content')
     </main>
     @include('partials.footer')

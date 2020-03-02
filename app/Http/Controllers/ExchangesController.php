@@ -41,26 +41,32 @@ class ExchangesController extends Controller
      */
     public function store(Request $request)
     {
-        $dataExchanges = Validator::make(
-            $request->input(),
-            [
-                'date' => 'required',
-                'commentaire' => 'required',
-                'id_type_exchange' => 'required',
-                'id_client' => 'required',
-                'id_user' => 'required',
+        // $dataExchanges = Validator::make(
+        //     $request->input(),
+        //     [
+        //         'date' => 'required',
+        //         'commentaire' => 'required',
+        //         'id_type_exchange' => 'required',
+        //         'id_client' => 'required',
+        //         'id_user' => 'required',
 
-            ],
-            [
-                'required' => 'Le champs :attribute est requis', // :attribute renvoie le champs / l'id de l'element en erreur
-            ]
-        )->validate();
+        //     ]
+        // )->validate();
 
+        $dataExchanges = [
+            'date' => $request->input('date'),
+            'commentaire' => $request->input('commentaire'),
+            'id_type_exchange' => $request->input('id_type_exchange'),
+            'id_client' => $request->input('id_client'),
+            'id_user' => $request->input('id_user'),
+        ];
         //Ajout en bdd des données validées par le validator
         $exchanges = ExchangesModel::create($dataExchanges);
 
         //Retourne le circuit formaté grace à la ressource
-        return new ExchangesResource($exchanges);
+        $redirect =  new ExchangesResource($exchanges);
+
+        return redirect('/')->with('redirect', $redirect);
     }
 
     /**
@@ -77,7 +83,7 @@ class ExchangesController extends Controller
         $exchanges = ExchangesModel::where('id_client', '=', $id)->orderBy('date', 'DESC')->get(); //prepare la connections
         $exchangeData = ExchangesResource::collection($exchanges);
 
-        return view('clients.client', ['client'=>$client, 'exchanges'=>$exchangeData,'users'=>$users, 'typeExchanges'=>$typeExchanges]); //renvoie les données
+        return view('clients.client', ['client' => $client, 'exchanges' => $exchangeData, 'users' => $users, 'typeExchanges' => $typeExchanges]); //renvoie les données
         // return $exchangeData;
     }
 

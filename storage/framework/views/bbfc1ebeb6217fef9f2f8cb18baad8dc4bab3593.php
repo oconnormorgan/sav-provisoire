@@ -48,18 +48,18 @@
 
                 <div class="m-2">
                     <label for="InputUser">Opératrice :</label>
-                    <select class="form-control" id="InputUser">
+                    <select class="form-control" id="InputUser" name="id_user">
                         <?php $__currentLoopData = $users; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $user): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($user->id); ?>" name="id_user"><?php echo e($user->nom); ?></option>
+                        <option value="<?php echo e($user->id); ?>"><?php echo e($user->nom); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
 
                 <div class="m-2">
                     <label for="InputTypeEchange">Type d'échange :</label>
-                    <select class="form-control" id="InputTypeEchange">
+                    <select class="form-control" id="InputTypeEchange" name="id_type_exchange">
                         <?php $__currentLoopData = $typeExchanges; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $typeExchange): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                        <option value="<?php echo e($typeExchange->id); ?>" name="id_type_exchange"><?php echo e($typeExchange->type); ?></option>
+                        <option value="<?php echo e($typeExchange->id); ?>"><?php echo e($typeExchange->type); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>

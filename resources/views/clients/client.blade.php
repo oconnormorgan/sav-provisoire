@@ -49,18 +49,18 @@
 
                 <div class="m-2">
                     <label for="InputUser">Opératrice :</label>
-                    <select class="form-control" id="InputUser">
+                    <select class="form-control" id="InputUser" name="id_user">
                         @foreach($users as $user)
-                        <option value="{{$user->id}}" name="id_user">{{$user->nom}}</option>
+                        <option value="{{ $user->id }}">{{$user->nom}}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="m-2">
                     <label for="InputTypeEchange">Type d'échange :</label>
-                    <select class="form-control" id="InputTypeEchange">
+                    <select class="form-control" id="InputTypeEchange" name="id_type_exchange">
                         @foreach($typeExchanges as $typeExchange)
-                        <option value="{{$typeExchange->id}}" name="id_type_exchange">{{$typeExchange->type}}</option>
+                        <option value="{{ $typeExchange->id }}">{{$typeExchange->type}}</option>
                         @endforeach
                     </select>
                 </div>
