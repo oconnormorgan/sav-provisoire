@@ -604,7 +604,6 @@ class ComposerStaticInit93b6e47d99eeca6e057e7716f3ebe291
         'Egulias\\EmailValidator\\Warning\\QuotedString' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/QuotedString.php',
         'Egulias\\EmailValidator\\Warning\\TLD' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/TLD.php',
         'Egulias\\EmailValidator\\Warning\\Warning' => __DIR__ . '/..' . '/egulias/email-validator/EmailValidator/Warning/Warning.php',
-        'ExchangeSeeder' => __DIR__ . '/../..' . '/database/seeds/ExchangeSeeder.php',
         'ExchangesSeeder' => __DIR__ . '/../..' . '/database/seeds/ExchangesSeeder.php',
         'Facade\\FlareClient\\Api' => __DIR__ . '/..' . '/facade/flare-client-php/src/Api.php',
         'Facade\\FlareClient\\Concerns\\HasContext' => __DIR__ . '/..' . '/facade/flare-client-php/src/Concerns/HasContext.php',
